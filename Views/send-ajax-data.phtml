@@ -1,0 +1,100 @@
+<h3>Workshop 15</h3>
+
+<!--<script>-->
+<!--    let xhr = new XMLHttpRequest();-->
+<!---->
+<!---->
+<!--    // Track the state changes of the request.-->
+<!--    xhr.onreadystatechange = function () {-->
+<!--        const DONE = 4; // readyState 4 means the request is done.-->
+<!--        const OK = 200; // status 200 is a successful return.-->
+<!--        if (xhr.readyState === DONE)-->
+<!--        {-->
+<!--            if (xhr.status === OK) {-->
+<!--                console.log(xhr.responseText); // 'This is the output.'-->
+<!--            }-->
+<!--            else-->
+<!--            {-->
+<!--                console.log('Error: ' + xhr.status);-->
+<!--                // An error occurred during the request.-->
+<!--            }-->
+<!--        }-->
+<!--    };-->
+<!---->
+<!---->
+<!--    xhr.open('GET', 'send-ajax-data.php');-->
+<!---->
+<!---->
+<!--    // Send the request to send-ajax-data.php-->
+<!--   //  xhr.send(null);-->
+<!---->
+<!--</script>-->
+
+<script>
+    function onclickHandler(event) {
+        document.getElementById('output').innerText = 'fetching...';
+        fetch('../data.php').then(function (response) {
+            return response.text(); }).then(function (data) {
+                document.getElementById('output').innerText = data;
+            console.log(data);
+        }).catch(function (error) {
+                document.getElementById('output').innerText ='Error: ' + error;
+            });
+    }
+</script>
+
+<button id="goButton">Press me</button><p style="border : 1px solid blue; " id="output">Output</p>
+
+<script>
+    document.getElementById('goButton').addEventListener('click', onclickHandler, false);
+</script>
+
+
+<body>
+
+    <p><strong>Start typing a name in the input field below:</strong></p>
+
+    <form>
+        First name: <input type="text" onkeyup="showHint(this.value)">
+    </form>
+
+    <p>Suggestions: <span id="txtHint"></span></p>
+
+    <select id="resultsSelectionBox"></select>
+
+</body>
+
+<script>
+    function showHint(str) {
+        if (str.length === 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            //document.getElementById("resultsSelectionBox").innerHTML = "";
+            return;
+
+        } else {
+            let xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+
+                    var uic = document.getElementById("txtHint");
+                    //var uic = document.getElementById("resultsSelectionBox");
+                    uic.innerHTML = this.responseText;
+
+                    //let uic = document.getElementById("resultsSelectionBox");
+                    // var names = this.responseText.split(',');
+                    //
+                    // for (var i = 0; i < names.length; i++){
+                    //     var opt = document.createElement('option');
+                    //     opt.value = names[i];
+                    //     opt.innerHTML = names[i];
+                    //     uic.appendChild(opt);
+                }
+            };
+
+            xmlhttp.open("GET", "get-hint.php?q=" + str, true);
+            xmlhttp.send();
+        }
+    }
+</script>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'send-ajax-data.php');
+
+    // Track the state changes of the request.
+    xhr.onreadystatechange = function () {
+        const DONE = 4; // readyState 4 means the request is done.
+        const OK = 200; // status 200 is a successful return.
+        if (xhr.readyState === DONE)
+        {
+            if (xhr.status === OK) {
+                console.log(xhr.responseText); // 'This is the output.'
+            }
+            else
+            {
+                console.log('Error: ' + xhr.status);
+                // An error occurred during the request.
+            }
+        }
+    };
+
+    // Send the request to send-ajax-data.php
+    xhr.send(null);
+
+</script>
+
+<script>
+    function onclickHandler(event) {
+        document.getElementById('output').innerText = 'fetching...';
+        fetch('send-ajax-data.php').then(function (response) {
+            return response.text(); }).then(function (data) {
+            document.getElementById('output').innerText = data;
+        }).catch(function (error) {
+            document.getElementById('output').innerText ='Error: ' + error;
+        });
+    }
+</script>
+
+<button id="goButton">Press me</button><p style="border : 1px solid blue; " id="output">Output</p>
+
+<script>
+    document.getElementById('goButton').addEventListener('click', onclickHandler, false);
+</script>
