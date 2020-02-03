@@ -76,19 +76,19 @@
 
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
+                    // var uic = document.getElementById("txtHint");
+                    // let uic = document.getElementById("resultsSelectionBox");
+                    // uic.innerHTML = this.responseText;
 
-                    var uic = document.getElementById("txtHint");
-                    //var uic = document.getElementById("resultsSelectionBox");
-                    uic.innerHTML = this.responseText;
+                    let uic = document.getElementById("resultsSelectionBox");
+                    let names = this.responseText.split(',');
 
-                    //let uic = document.getElementById("resultsSelectionBox");
-                    // var names = this.responseText.split(',');
-                    //
-                    // for (var i = 0; i < names.length; i++){
-                    //     var opt = document.createElement('option');
-                    //     opt.value = names[i];
-                    //     opt.innerHTML = names[i];
-                    //     uic.appendChild(opt);
+                    for (var i = 0; i < names.length; i++) {
+                        let opt = document.createElement('option');
+                        opt.value = names[i];
+                        opt.innerHTML = names[i];
+                        uic.appendChild(opt);
+                    }
                 }
             };
 
