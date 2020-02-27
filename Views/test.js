@@ -53,3 +53,47 @@ function showHint(str) {
         xmlhttp.send();
     }
 }
+
+function showHint2(str) {
+    if (str.length === 0) {
+        document.getElementById("txtHint2").innerHTML = "";
+        //document.getElementById("resultsSelectionBox").innerHTML = "";
+        return;
+
+    } else {
+        let xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                // var uic2 = document.getElementById("txtHint2");
+                // let uic2 = document.getElementById("resultsSelectionBox");
+                // uic.innerHTML = this.responseText;
+
+                let uic2 = document.getElementById("resultsSelectionBox2");
+                let peopleNames = this.responseText.split(',');
+
+                // if (this.response != "no suggestions") {
+                //     uic2.innerHTML = "Suggestions:<br/>";
+                //     let people = JSON.parse(this.responseText);
+                //     console.log(people);
+                //
+                //     people.forEach(function (obj) {
+                //         uic2.innerHTML += "<a href='#'><img src='" + obj.image + "'>" + obj.name + ": " + obj.location + "</a><br/>";
+                //     })
+                // }
+
+                for (let i = 0; i < peopleNames.length; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = peopleNames[i];
+                    opt.innerHTML = peopleNames[i];
+                    uic2.appendChild(opt);
+
+                }
+            }
+        };
+
+        xmlhttp.open("GET", "people-hint.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+

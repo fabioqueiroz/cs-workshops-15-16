@@ -33,6 +33,7 @@ $a[] = "Wenche";
 // get the q parameter, the text typed in, from URL
 $q = $_REQUEST["q"];
 $hint = "";
+//var_dump($q);
 
 // lookup all hints from array if $q is different from ""
 if ($q !== "") {
@@ -51,3 +52,5 @@ if ($q !== "") {
 
 // Output "no suggestion" if no hint was found or output results
 echo $hint === "" ? "no suggestion" : $hint;
+
+
