@@ -67,6 +67,7 @@ function showHint2(str) {
 
                 let uic2 = document.getElementById("resultsSelectionBox2");
                 let peopleNames = this.responseText.split(',');
+                console.log(peopleNames);
 
                 if (this.response != "no suggestions") {
                     uic2.innerHTML = "Suggestions:<br/>";

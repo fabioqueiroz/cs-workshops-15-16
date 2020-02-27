@@ -12,6 +12,8 @@ $peopleData = array (
 
 $query = $_REQUEST["q"];
 $peopleHint = "";
+$image = "";
+$location = "";
 
 if ($query !== "") {
     $query = strtolower($query);
@@ -25,9 +27,10 @@ if ($query !== "") {
 
             if ($peopleHint === "") {
                 $peopleHint = $personName;
-
+                $image = $person['image'];
+                $location = $person['location'];
             } else {
-                $peopleHint .= ", $personName";
+                $peopleHint .= ", $personName, $image, $location";
             }
         }
     }
