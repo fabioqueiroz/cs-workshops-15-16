@@ -12,20 +12,20 @@ $peopleData = array (
 
 $query = $_REQUEST["q"];
 $peopleHint = "";
-//var_dump($query);
 
 if ($query !== "") {
     $query = strtolower($query);
     $length = strlen($query);
+//    var_dump($query);
 
     foreach($peopleData as $person){
         $personName = $person['name'];
-        //var_dump($personName);
 
         if (stristr($query, substr($personName, 0, $length))) {
+
             if ($peopleHint === "") {
                 $peopleHint = $personName;
-                //var_dump($peopleHint);
+
             } else {
                 $peopleHint .= ", $personName";
             }
