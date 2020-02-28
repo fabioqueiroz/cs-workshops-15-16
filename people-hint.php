@@ -27,6 +27,7 @@ if ($query !== "") {
 
             if ($peopleHint === "") {
                 $peopleHint = $personName;
+//                $peopleHint = "<a href='#'>" .$personName . "</a>";
 //                $peopleHint = $personName . ", " .$location;
 
             } else {
@@ -39,5 +40,5 @@ if ($query !== "") {
 
 }
 
-echo $peopleHint === "" ? "no suggestion" : $peopleHint;
-//echo $peopleHint === "" ? "no suggestion" : json_encode($peopleHint);
+//echo $peopleHint === "" ? "no suggestion" : $peopleHint;
+echo $peopleHint === "" ? "no suggestion" : json_encode($peopleHint);

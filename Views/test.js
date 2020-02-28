@@ -86,16 +86,18 @@ function showHint2(str) {
                     //     uic2.innerHTML += obj.name;
                     // })
 
-                    peopleNames.forEach(function (obj) {
-                        console.log(obj);
-                    });
+                    // peopleNames.forEach(function (obj) {
+                    //     uic2.innerHTML += "<a href='#'>" + obj.name + "</a><br/>";
+                    //     console.log(obj);
+                    // });
 
                     for (let i = 0; i < peopleNames.length; i++) {
                         let opt = document.createElement('option');
                         opt.value = peopleNames[i];
                         opt.innerHTML = peopleNames[i];
+                        //opt.innerHTML = "<a href='#'>" + peopleNames[i] + "</a><br/>";
                         uic2.appendChild(opt);
-
+                        //console.log("opt ", opt);
                     }
                 }
             }
