@@ -7,7 +7,7 @@ require_once ('Views/send-ajax-data.phtml');
 //header('Content-Type: text/plain');
 
 // Send the data back.
-echo "This is the output.";
+//echo "This is the output.";
 
 
 

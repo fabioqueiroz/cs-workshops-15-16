@@ -57,6 +57,7 @@ function showHint(str) {
 function showHint2(str) {
     if (str.length === 0) {
         document.getElementById("txtHint2").innerHTML = "";
+        document.getElementById("txtHint2").style.border = "0px";
         return;
 
     } else {
@@ -70,16 +71,24 @@ function showHint2(str) {
                 console.log(peopleNames);
 
                 if (this.response != "no suggestions") {
-                    uic2.innerHTML = "Suggestions:<br/>";
+                    uic2.innerHTML = "<br/>";
+                    uic2.style.border = "1px solid #A5ACB2";
+                    uic2.style.width = "205px";
+                    uic2.style.marginTop = "-16px";
+
                     //console.warn(xmlhttp.responseText);
 
-                    // let people = JSON.parse(this.responseText); // **** throwing an error ****
+                    // let people = JSON.parse(this.responseText); // **** throwing an error without json_encode($peopleHint) ****
                     // console.log(people);
-                    //
-                    //
+
                     // people.forEach(function (obj) {
-                    //     uic2.innerHTML += "<a href='#'><img src='" + obj.image + "'>" + obj.name + ": " + obj.location + "</a><br/>";
+                    //     // uic2.innerHTML += "<a href='#'><img src='" + obj.image + "'>" + obj.name + ": " + obj.location + "</a><br/>";
+                    //     uic2.innerHTML += obj.name;
                     // })
+
+                    peopleNames.forEach(function (obj) {
+                        console.log(obj);
+                    });
 
                     for (let i = 0; i < peopleNames.length; i++) {
                         let opt = document.createElement('option');

@@ -12,15 +12,13 @@ $peopleData = array (
 
 $query = $_REQUEST["q"];
 $peopleHint = "";
-$image = "";
-$location = "";
+$image = $location = "";
 
 if ($query !== "") {
     $query = strtolower($query);
     $length = strlen($query);
-//    var_dump($query);
 
-    foreach($peopleData as $person){
+    foreach($peopleData as $person) {
         $personName = $person['name'];
         $image = $person['image'];
         $location = $person['location'];
@@ -29,9 +27,12 @@ if ($query !== "") {
 
             if ($peopleHint === "") {
                 $peopleHint = $personName;
+//                $peopleHint = $personName . ", " .$location;
 
             } else {
-                $peopleHint .= ", $personName";
+                  $peopleHint .= ", $personName";
+//                $peopleHint .= ", $personName" . ", " .$location;
+
             }
         }
     }
@@ -39,3 +40,4 @@ if ($query !== "") {
 }
 
 echo $peopleHint === "" ? "no suggestion" : $peopleHint;
+//echo $peopleHint === "" ? "no suggestion" : json_encode($peopleHint);

@@ -29,27 +29,8 @@
 <!--   //  xhr.send(null);-->
 <!---->
 <!--</script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-
-<script>
-    // function onclickHandler(event) {
-    //     document.getElementById('output').innerText = 'fetching...';
-    //     fetch('../data.php').then(function (response) {
-    //         return response.text(); }).then(function (data) {
-    //             document.getElementById('output').innerText = data;
-    //         console.log(data);
-    //     }).catch(function (error) {
-    //             document.getElementById('output').innerText ='Error: ' + error;
-    //         });
-    // }
-</script>
 
 <button id="goButton">Press me</button><p style="border : 1px solid blue; " id="output">Output</p>
-
-<script>
-    // document.getElementById('goButton').addEventListener('click', onclickHandler, false);
-</script>
-
 
 <body>
 
@@ -64,63 +45,19 @@
     <select id="resultsSelectionBox"></select>
 
     <br>
-    <p><strong>NEW TEST: type a name in the input field below:</strong></p>
+    <p><strong>LIVE SEARCH: type a name in the input field below:</strong></p>
 
     <form>
-        First name: <input type="text" onkeyup="showHint2(this.value)">
+        <div>
+            First name: <input type="text" onkeyup="showHint2(this.value)">
+            <p><span id="txtHint2"></span></p>
+            <div id="resultsSelectionBox2" ></div>
+        </div>
     </form>
 
-    <p>Suggestions: <span id="txtHint2"></span></p>
-
-    <select id="resultsSelectionBox2"></select>
+<!--    <select id="resultsSelectionBox2"></select>-->
 
 </body>
-
-
-<script>
-    // function showHint(str) {
-    //     if (str.length === 0) {
-    //         document.getElementById("txtHint").innerHTML = "";
-    //         //document.getElementById("resultsSelectionBox").innerHTML = "";
-    //         return;
-    //
-    //     } else {
-    //         let xmlhttp = new XMLHttpRequest();
-    //
-    //         xmlhttp.onreadystatechange = function() {
-    //             if (this.readyState === 4 && this.status === 200) {
-    //                 // var uic = document.getElementById("txtHint");
-    //                 // let uic = document.getElementById("resultsSelectionBox");
-    //                 // uic.innerHTML = this.responseText;
-    //
-    //                 let uic = document.getElementById("resultsSelectionBox");
-    //                 let names = this.responseText.split(',');
-    //
-    //                 var optionValues =[];
-    //                 for (var i = 0; i < names.length; i++) {
-    //                     let opt = document.createElement('option');
-    //                     opt.value = names[i];
-    //                     opt.innerHTML = names[i];
-    //                     uic.appendChild(opt);
-    //
-    //                     // $('#resultsSelectionBox option').each(function(){
-    //                     //     if($.inArray(this.value, optionValues) > -1){
-    //                     //         $(this).remove()
-    //                     //     }else{
-    //                     //         optionValues.push(this.value);
-    //                     //         //uic.appendChild(opt);
-    //                     //     }
-    //                     // });
-    //
-    //                 }
-    //             }
-    //         };
-    //
-    //         xmlhttp.open("GET", "get-hint.php?q=" + str, true);
-    //         xmlhttp.send();
-    //     }
-    // }
-</script>
 
 <div>
     <script src="Views/test.js" type="text/javascript" charset="utf-8"></script>
