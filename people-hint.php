@@ -40,5 +40,5 @@ if ($query !== "") {
 
 }
 
-//echo $peopleHint === "" ? "no suggestion" : $peopleHint;
-echo $peopleHint === "" ? "no suggestion" : json_encode($peopleHint);
+echo $peopleHint === "" ? "no suggestion" : $peopleHint;
+//echo $peopleHint === "" ? "no suggestion" : json_encode($peopleHint);
