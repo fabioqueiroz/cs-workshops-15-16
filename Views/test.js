@@ -68,6 +68,9 @@ function showHint2(str) {
 
                 let uic2 = document.getElementById("resultsSelectionBox2");
                 let peopleNames = this.responseText.split(',');
+
+                //peopleNames.reduce((name, location) => name.concat(location),[]);
+
                 console.log(peopleNames);
 
                 if (this.response != "no suggestions") {
@@ -78,27 +81,28 @@ function showHint2(str) {
 
                     //console.warn(xmlhttp.responseText);
 
-                    // let people = JSON.parse(this.responseText); // **** throwing an error without json_encode($peopleHint) ****
-                    // console.log(people);
+                    let people = JSON.parse(this.responseText); // **** throwing an error without json_encode($peopleHint) ****
+                    console.log(people);
+                    // uic2.innerHTML = "<a href='#'>" + people + "</a><br/>";
 
                     // people.forEach(function (obj) {
                     //     // uic2.innerHTML += "<a href='#'><img src='" + obj.image + "'>" + obj.name + ": " + obj.location + "</a><br/>";
                     //     uic2.innerHTML += obj.name;
                     // })
 
-                    // peopleNames.forEach(function (obj) {
-                    //     uic2.innerHTML += "<a href='#'>" + obj.name + "</a><br/>";
-                    //     console.log(obj);
-                    // });
+                    peopleNames.forEach(function (obj) {
+                        uic2.innerHTML = "<a href='#'>" + people + "</a><br/>";
+                        //console.log(obj.name);
+                    });
 
-                    for (let i = 0; i < peopleNames.length; i++) {
-                        let opt = document.createElement('option');
-                        opt.value = peopleNames[i];
-                        opt.innerHTML = peopleNames[i];
-                        //opt.innerHTML = "<a href='#'>" + peopleNames[i] + "</a><br/>";
-                        uic2.appendChild(opt);
-                        //console.log("opt ", opt);
-                    }
+                    // for (let i = 0; i < peopleNames.length; i++) {
+                    //     let opt = document.createElement('option');
+                    //     opt.value = peopleNames[i];
+                    //     opt.innerHTML = peopleNames[i];
+                    //     //opt.innerHTML = "<a href='#'>" + peopleNames[i] + "</a><br/>";
+                    //     uic2.appendChild(opt);
+                    //     //console.log("opt ", opt);
+                    // }
                 }
             }
         };
